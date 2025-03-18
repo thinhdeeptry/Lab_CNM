@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="content">
+        <form id="delete" method="POST" , action="/delete" enctype="multipart/form-data">
+            <table>
+                <caption>Danh sách các môn học</caption>
+
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên môn học</th>
+                        <th>Loại môn học</th>
+                        <th>Học kỳ</th>
+                        <th>Khoa</th>
+                        <th>image</th>
+                        <th>Xoa</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% for (let i = 0; i< subjects.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= subjects[i].id%>
+                            </td>
+                            <td>
+                                <%= subjects[i].nameSP%>
+                            </td>
+                            <td>
+                                <%= subjects[i].course_type %>
+                            </td>
+                            <td>
+                                <%= subjects[i].semester %>
+                            </td>
+                            <td>
+                                <%= subjects[i].department %>
+                            </td>
+                            <!-- <td>
+                                <%= subjects[i].image %>
+                            </td> -->
+                            <td>
+                                <img src="<%= subjects[i].image %>" alt="error" style="resize: both; height: 100px; width: 100px;">
+                            </td>
+                            <td>
+                                <input type="checkbox" name="<%=subjects[i].id%>" /> </td>
+                        </tr>
+                        <%} %>
+                </tbody>
+            </table>
+            <input type="submit" value="Xoa" />
+        </form>
+
+
+        <form action="/" method="post">
+            <input type="text" name="id" placeholder="Nhập id..">
+            <br>
+            <input type="text" name="ten" placeholder="Nhập ten..">
+            <br>
+            <input type="text" name="loai" placeholder="Nhập loai..">
+            <br>
+            <input type="text" name="hoc_ki" placeholder="Nhập hoc ki..">
+            <br>
+            <input type="text" name="khoa" placeholder="Nhập khoa..">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
